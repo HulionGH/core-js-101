@@ -6,6 +6,7 @@
  *                                                                                                *
  ************************************************************************************************ */
 
+// const { getArrayOfPositives } = require('./03-arrays-tasks');
 
 /**
  * Returns the rectangle object with width and height parameters and getArea() method
@@ -20,10 +21,16 @@
  *    console.log(r.height);      // => 20
  *    console.log(r.getArea());   // => 200
  */
-function Rectangle(/* width, height */) {
-  throw new Error('Not implemented');
-}
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
 
+  getArea() {
+    return this.width * this.height;
+  }
+}
 
 /**
  * Returns the JSON representation of specified object
@@ -35,10 +42,9 @@ function Rectangle(/* width, height */) {
  *    [1,2,3]   =>  '[1,2,3]'
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
-function getJSON(/* obj */) {
-  throw new Error('Not implemented');
+function getJSON(obj) {
+  return JSON.stringify(obj);
 }
-
 
 /**
  * Returns the object of specified type from JSON representation
@@ -51,10 +57,12 @@ function getJSON(/* obj */) {
  *    const r = fromJSON(Circle.prototype, '{"radius":10}');
  *
  */
-function fromJSON(/* proto, json */) {
-  throw new Error('Not implemented');
-}
+function fromJSON(proto, json) {
+  const obj = JSON.parse(json);
+  const values = Object.values(obj);
 
+  return new proto.constructor(...values);
+}
 
 /**
  * Css selectors builder
@@ -111,35 +119,52 @@ function fromJSON(/* proto, json */) {
  */
 
 const cssSelectorBuilder = {
+  // string: '',
+  // selector1: '',
+  // selector2: '';
+
   element(/* value */) {
+    //   this.string += `${value}`;
+    //   return this;
     throw new Error('Not implemented');
   },
 
-  id(/* value */) {
-    throw new Error('Not implemented');
-  },
+  // id(value) {
+  //   this.string += `#${value}`;
+  //   return this;
+  // },
 
-  class(/* value */) {
-    throw new Error('Not implemented');
-  },
+  // class(value) {
+  //   this.string += `.${value}`;
+  //   return this;
+  //   // throw new Error('Not implemented');
+  // },
 
-  attr(/* value */) {
-    throw new Error('Not implemented');
-  },
+  // attr(value) {
+  //   this.string += `[${value}]`;
+  //   return this;
+  // },
 
-  pseudoClass(/* value */) {
-    throw new Error('Not implemented');
-  },
+  // pseudoClass(value) {
+  //   this.string += `:${value}`;
+  //   return this;
+  // },
 
-  pseudoElement(/* value */) {
-    throw new Error('Not implemented');
-  },
+  // pseudoElement(value) {
+  //   this.string += `::${value}`;
+  //   return this;
+  // },
 
-  combine(/* selector1, combinator, selector2 */) {
-    throw new Error('Not implemented');
-  },
+  // combine(selector1, combinator, selector2) {
+  //   this.string += `${selector1} ${combinator} ${selector2}`;
+  //   return this;
+  // },
+  // stringify() {
+  //   const result = this.string;
+  //   this.string = '';
+  //   return result;
+  // },
 };
-
 
 module.exports = {
   Rectangle,
