@@ -278,25 +278,8 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
-function get3TopItems(/* arr */) {
-  // const maxIndex = [];
-  // let top = [];
-  // if (Math.max.apply(null, arr)) {
-  //   top[0] = Math.max.apply(null, arr);
-  //   maxIndex[0] = arr.indexOf(top[0]);
-  //   arr.splice(maxIndex[0], 1);
-  //   top[1] = Math.max.apply(null, arr);
-  //   maxIndex[1] = arr.indexOf(top[1]);
-  //   arr.splice(maxIndex[1], 1);
-  //   top[2] = Math.max.apply(null, arr);
-  //   maxIndex[2] = arr.indexOf(top[1]);
-  //   arr.splice(maxIndex[2], 1);
-  // } else {
-  //   top = [arr[0], arr[1], arr[2]];
-  // }
-
-  // return top;
-  throw new Error('Not implemented');
+function get3TopItems(arr) {
+  return arr.sort((a, b) => b - a).slice(0, 3);
 }
 
 /**
@@ -466,16 +449,14 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  // const subArr = Array(n).fill(0);
-  // console.log(subArr);
-  // const tempMatrix = Array(n).fill(subArr);
-
-  // function fillin(arr, index) {
-  //   arr.splice(index, 1, 1);
-  // }
-  // console.log(tempMatrix);
-  throw new Error('Not implemented');
+function getIdentityMatrix(num) {
+  const subArr = Array(num).fill(0);
+  function exc(val, i) {
+    return val.map((x, j) => (i === j ? 1 : 0));
+  }
+  const tempMatrix = Array(num).fill(subArr);
+  const result = tempMatrix.map((val, i) => exc(val, i));
+  return result;
 }
 
 /**
@@ -584,8 +565,11 @@ function selectMany(arr, childrenSelector) {
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-function getElementByIndexes(/* arr, indexes */) {
-  throw new Error('Not implemented');
+function getElementByIndexes(arr, ind) {
+  function index(prev, cur) {
+    return prev[cur];
+  }
+  return ind.reduce((prev, cur) => index(prev, cur), arr);
 }
 
 /**

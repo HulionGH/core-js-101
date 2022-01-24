@@ -273,21 +273,15 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(/* ccn */) {
-  // let oddSum = 0;
-  // let evenSum = 0;
-  // const numToString = ccn.toString().split('');
-  // for (let i = 0; i < numToString.length; i += 1) {
-  //   if (i % 2 === 0) {
-  //     if (numToString[i] * 2 >= 10) {
-  //       evenSum += numToString[i] * 2 - 9;
-  //     } else {
-  //       evenSum += numToString[i] * 2;
-  //     }
-  //   } else {
-  //     oddSum += parseInt(numToString[i], 10);
-  //   }
-  // }
-  // return (oddSum + evenSum) % 10 !== 0;
+  // let sum = 0,
+  //   even = false;
+  // const temp = ccn.split('').reverse();
+  // temp.forEach(function (dstr) {
+  //   const d = parseInt(dstr);
+  //   if (sum += (even = !even)) {
+  //    d : d < 5 ? d * 2 : (d - 5) * 2 + 1;
+  // });
+  // return sum % 10 === 0;
   throw new Error('Not implemented');
 }
 
@@ -418,6 +412,21 @@ function getCommonDirectoryPath(/* input */) {
  */
 function getMatrixProduct(/* m1, m2 */) {
   throw new Error('Not implemented');
+
+  // const arr1 = m1.flat().flat();
+  // const len = m1.flat().length;
+  // const arr2 = m2.flat().flat();
+  // const sum = arr1.map((val, idx) => Math.max(val, arr2[idx]));
+
+  // function call(rs, key, i, wid) {
+  //   return (i % wid === 0 ? rs.push([key]) : rs[rs.length - 1].push(key)) && rs;
+  // }
+
+  // function listToMatrix(arr, wid) {
+  //   return arr.reduce((rs, key, i) => call(rs, key, i, wid), []);
+  // }
+  // const sub = listToMatrix(sum, len);
+  // return [sub];
 }
 
 /**
